@@ -1,2 +1,0 @@
-class CategoryTodo < ApplicationRecord
-end

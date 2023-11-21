@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CategoryTodoTest < ActiveSupport::TestCase
+class CategoryToDoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
