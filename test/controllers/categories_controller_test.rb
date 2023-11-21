@@ -25,4 +25,13 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_equal ["name"], data.keys
   end
 
+  test "update" do
+    category = Category.first
+    patch "/categories/#{category.id}.json", params: { name: "Updated name" }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal "Updated name", data["name"]
+  end
+
 end
