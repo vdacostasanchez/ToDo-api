@@ -12,5 +12,10 @@ class CategoriesController < ApplicationController
     render :show
   end
 
+  def show
+    @category = Category.find_by(id: params[:id])
+    render :show
+  end
+
 
 end
