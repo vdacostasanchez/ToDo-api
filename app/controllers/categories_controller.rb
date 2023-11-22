@@ -9,8 +9,13 @@ class CategoriesController < ApplicationController
     @category = Category.create(
       name: params[:name]
     )
-    render :show
+    if @category.valid?
+      render :show
+    else 
+     render json: {errors: @category.errors.full_messages}, status: 422
+    end
   end
+
 
   def show
     @category = Category.find_by(id: params[:id])
@@ -22,8 +27,20 @@ class CategoriesController < ApplicationController
     @category.update(
     name: params[:name] || @category.name 
     )
-    render :show
+    if @category.valid 
+      render :show
+    else
+      json: {errors: @categories.errors.full_messages}, status: 422
+    end
+
   end
+
+  def destroy
+    @category = Category.find_by(id: params[:id])
+    @category.destroy
+    render json: {message: "Category successfully removed" }
+  end
+
 
 
 
