@@ -16,4 +16,12 @@ class CategoryToDoControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "show" do
+    get "/category_to_dos/#{CategoryToDo.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["category_id", "to_do_id"], data.keys
+  end
+
 end

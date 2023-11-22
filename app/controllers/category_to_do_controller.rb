@@ -11,5 +11,11 @@ class CategoryToDoController < ApplicationController
     )
     render template: "category_to_dos/show"
   end
+
+  def show
+    @category_to_do = CategoryToDo.find_by(id: params[:id])
+    render template: "category_to_dos/show"
+  end
+
   
 end
