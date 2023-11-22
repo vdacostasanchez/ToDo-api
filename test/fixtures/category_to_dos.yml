@@ -2,8 +2,8 @@
 
 one:
   category_id: 1
-  todo_id: 1
+  to_do_id: 1
 
 two:
   category_id: 1
-  todo_id: 1
+  to_do_id: 1
