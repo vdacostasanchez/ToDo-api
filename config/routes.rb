@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get "/category_to_dos" => "category_to_do#index"
   post "/category_to_dos" => "category_to_do#create"
   get "/category_to_dos/:id" => "category_to_do#show"
+  patch "category_to_dos/:id" => "category_to_do#update"
 end

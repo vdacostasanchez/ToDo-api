@@ -24,4 +24,13 @@ class CategoryToDoControllerTest < ActionDispatch::IntegrationTest
     assert_equal ["category_id", "to_do_id"], data.keys
   end
 
+  test "update" do
+    category_to_do = CategoryToDo.first
+    patch "/category_to_dos/#{category_to_do.id}.json", params: { to_do_id: 1 }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal 1, data["to_do_id"]
+  end
+  
 end
