@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   delete "/users/:id" => "users#destroy"
 
   get "/category_to_dos" => "category_to_do#index"
+  post "/category_to_dos" => "category_to_do#create"
 end
