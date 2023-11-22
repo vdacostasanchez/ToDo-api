@@ -12,7 +12,11 @@ class ToDosController < ApplicationController
       deadline: params[:deadline],
       completed: params[:completed],
     )
-    render :show
+    if @to_do.save
+      render :show
+    else
+      render json: { error: @to_do.errors.full_messages }, status: 422
+    end
   end
 
   def show
@@ -29,7 +33,11 @@ class ToDosController < ApplicationController
       deadline: params[:deadline] || @to_do.deadline,
       completed: params[:completed] || @to_do.completed,
     )
-    render :show
+    if @to_do.save
+      render :show
+    else
+      render json: { error: errors.full_messages }, status: 422
+    end
   end
 
   def destroy
