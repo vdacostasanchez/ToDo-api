@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_21_013019) do
 
   create_table "category_to_dos", force: :cascade do |t|
     t.integer "category_id"
-    t.integer "todo_id"
+    t.integer "to_do_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
