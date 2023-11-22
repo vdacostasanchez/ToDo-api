@@ -32,4 +32,11 @@ class ToDosControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal "Updated title", data["title"]
   end
+
+  test "destroy" do
+    assert_difference "ToDo.count", -1 do
+      delete "/to_dos/#{ToDo.first.id}.json"
+      assert_response 200
+    end
+  end
 end

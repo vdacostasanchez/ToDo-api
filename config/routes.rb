@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/to_dos" => "to_dos#create"
   get "/to_dos/:id" => "to_dos#show"
   patch "/to_dos/:id" => "to_dos#update"
+  delete "/to_dos/:id" => "to_dos#destroy"
 
   #Categories
 

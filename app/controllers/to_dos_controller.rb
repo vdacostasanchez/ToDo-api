@@ -31,4 +31,10 @@ class ToDosController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @to_do = ToDo.find_by(id: params[:id])
+    @to_do.destroy
+    render json: { message: "To Do was destroyed" }
+  end
 end
