@@ -19,4 +19,16 @@ class ToDosController < ApplicationController
     @to_do = ToDo.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @to_do = ToDo.find_by(id: params[:id])
+    @to_do.update(
+      user_id: params[:user_id] || @to_do.user_id,
+      title: params[:title] || @to_do.title,
+      description: params[:description] || @to_do.description,
+      deadline: params[:deadline] || @to_do.deadline,
+      completed: params[:completed] || @to_do.completed,
+    )
+    render :show
+  end
 end
