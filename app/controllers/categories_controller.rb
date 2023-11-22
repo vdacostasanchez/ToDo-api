@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     if @category.valid?
       render :show
     else 
-     render json: {errors: @category.errors.full_messages}, status: 422
+     render json: {errors: @categories.errors.full_messages}, status: 422
     end
   end
 
@@ -27,10 +27,10 @@ class CategoriesController < ApplicationController
     @category.update(
     name: params[:name] || @category.name 
     )
-    if @category.valid 
+    if @category.valid?
       render :show
     else
-      json: {errors: @categories.errors.full_messages}, status: 422
+      render json: {errors: @categories.errors.full_messages}, status: 422
     end
 
   end
