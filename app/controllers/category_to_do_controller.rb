@@ -25,4 +25,10 @@ class CategoryToDoController < ApplicationController
     )
     render template: "category_to_dos/show"
   end
+
+  def destroy
+    @category_to_do = CategoryToDo.find_by(id: params[:id])
+    @category_to_do.destroy
+    render template: "category_to_dos/show"
+  end
 end

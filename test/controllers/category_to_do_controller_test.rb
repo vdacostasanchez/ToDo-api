@@ -32,5 +32,11 @@ class CategoryToDoControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal 1, data["to_do_id"]
   end
-  
+
+  test "destroy" do
+    assert_difference "CategoryToDo.count", -1 do
+      delete "/category_to_dos/#{CategoryToDo.first.id}.json"
+      assert_response 200
+    end
+  end
 end
