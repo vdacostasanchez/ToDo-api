@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #To Dos
   get "/to_dos" => "to_dos#index"
   post "/to_dos" => "to_dos#create"
+  get "to_dos/:id" => "to_dos#show"
 
   #Categories
 

@@ -14,4 +14,9 @@ class ToDosController < ApplicationController
     )
     render :show
   end
+
+  def show
+    @to_do = ToDo.find_by(id: params[:id])
+    render :show
+  end
 end

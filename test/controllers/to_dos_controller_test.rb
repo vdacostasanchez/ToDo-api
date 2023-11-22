@@ -15,4 +15,12 @@ class ToDosControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/to_dos/#{ToDo.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "user_id", "title", "description", "deadline", "completed"], data.keys
+  end
 end
