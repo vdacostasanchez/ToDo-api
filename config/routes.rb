@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/users" => "users#index"
   post "/users" => "users#create"
   get "/users/:id" => "users#show"
+  patch "users/:id" => "users#update"
   delete "/users/:id" => "users#destroy"
 
   #To Dos
@@ -21,4 +22,8 @@ Rails.application.routes.draw do
   delete "categories/:id" => "categories#destroy"
 
   get "/category_to_dos" => "category_to_do#index"
-end
+  post "/category_to_dos" => "category_to_do#create"
+  get "/category_to_dos/:id" => "category_to_do#show"
+  patch "category_to_dos/:id" => "category_to_do#update"
+  delete "/category_to_dos/:id" => "category_to_do#destroy"
+ end

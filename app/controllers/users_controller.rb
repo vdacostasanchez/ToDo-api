@@ -10,13 +10,35 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password],
     )
-    render :show
+    if @user.valid?
+      render :show
+    else
+      render json: {errors: @users.errors.full_messages }, status: 422
+    end 
+
   end
 
   def show
     @user = User.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.update(
+      name: params[:name] || @user.name,
+      email: params[:email] || @user.email,
+      password: params[:password] || @user.password
+    )
+    if @user.valid?
+      render :show
+    else
+      render json: {errors: @user.errors.full_messages}, status: 422
+    end
+
+  end
+
+
 
   def destroy
     @user = User.find_by(id: params[:id])

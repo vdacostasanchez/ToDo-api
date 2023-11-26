@@ -1,4 +1,5 @@
 class ToDosController < ApplicationController
+
   def index
     @to_dos = ToDo.all
     render :index
@@ -10,7 +11,7 @@ class ToDosController < ApplicationController
       title: params[:title],
       description: params[:description],
       deadline: params[:deadline],
-      completed: params[:completed],
+      completed: false,
     )
     if @to_do.save
       render :show
@@ -23,7 +24,7 @@ class ToDosController < ApplicationController
     @to_do = ToDo.find_by(id: params[:id])
     render :show
   end
-
+  
   def update
     @to_do = ToDo.find_by(id: params[:id])
     @to_do.update(
@@ -46,3 +47,13 @@ class ToDosController < ApplicationController
     render json: { message: "To Do was destroyed" }
   end
 end
+
+
+
+
+
+
+
+
+
+
