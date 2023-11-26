@@ -36,7 +36,7 @@ class ToDosController < ApplicationController
     if @to_do.save
       render :show
     else
-      render json: { error: errors.full_messages }, status: 422
+      render json: { error: @to_do.errors.full_messages }, status: 422
     end
   end
 
