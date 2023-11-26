@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       password: params[:password],
     )
     if @user.valid?
-      render :show
+      render json: {message: "User successfully created"}
     else
       render json: {errors: @users.errors.full_messages }, status: 422
     end 

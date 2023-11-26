@@ -3,7 +3,6 @@ User.create(name: "Anna", email: "anna@test.com", password: "password")
 User.create(name: "Lexi", email: "lexi@test.com", password: "password")
 User.create(name: "Valeria", email: "valeria@test.com", password: "password")
 
-<<<<<<< HEAD
 #To Dos
 ToDo.create(user_id: "1",
             title: "mini-capstone",
@@ -22,10 +21,8 @@ ToDo.create(user_id: "3",
             description: "final project",
             deadline: 20231221,
             completed: false)
-=======
 #Categories
 Category.create(name:"urgent")
 Category.create(name:"important")
 Category.create(name:"general")
 
->>>>>>> 4431af2a32369993255b2ad0965f2128cd4474b1
